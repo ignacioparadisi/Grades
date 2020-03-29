@@ -31,23 +31,3 @@ class TermGradeCardTableViewCell: UITableViewCell, ReusableView {
     }
     
 }
-
-// MARK: - Preview
-import SwiftUI
-
-struct TermGradeCardTableViewCellPreview: PreviewProvider {
-    static var previews: some View {
-        ContainerView()
-    }
-    
-    struct ContainerView: UIViewRepresentable {
-        typealias UIViewType = TermGradeCardTableViewCell
-        
-        func makeUIView(context: UIViewRepresentableContext<TermGradeCardTableViewCellPreview.ContainerView>) -> TermGradeCardTableViewCell {
-            TermGradeCardTableViewCell()
-        }
-
-        func updateUIView(_ uiView: TermGradeCardTableViewCell, context: UIViewRepresentableContext<TermGradeCardTableViewCellPreview.ContainerView>) {
-        }
-    }
-}

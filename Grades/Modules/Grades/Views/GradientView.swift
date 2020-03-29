@@ -55,13 +55,12 @@ class GradientView: UIView {
 //                if let data = data {
 //                    let rotation = abs(atan2(data.acceleration.x,
 //                    data.acceleration.y) - .pi)
-//                    
+//
 //                    self.startPoint = CGPoint(x: rotation / 6, y: rotation / 6 + 0.5)
 //                    self.layoutSubviews()
 //                }
 //            }
 //        }
 //    }
-    
     
 }
