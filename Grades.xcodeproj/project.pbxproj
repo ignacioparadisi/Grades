@@ -38,6 +38,7 @@
 		323F2576243105F800B9A4C8 /* GradesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GradesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		323F257A243105F800B9A4C8 /* GradesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTests.swift; sourceTree = "<group>"; };
 		323F257C243105F800B9A4C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3260DEE724310E7100A502A4 /* Grades.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Grades.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		323F255F243105F600B9A4C8 /* Grades */ = {
 			isa = PBXGroup;
 			children = (
+				3260DEE724310E7100A502A4 /* Grades.entitlements */,
 				323F2560243105F600B9A4C8 /* AppDelegate.swift */,
 				323F2562243105F600B9A4C8 /* SceneDelegate.swift */,
 				323F2564243105F600B9A4C8 /* ViewController.swift */,
@@ -386,6 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Grades/Grades.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8T85WESY64;
 				INFOPLIST_FILE = Grades/Info.plist;
@@ -395,6 +398,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ignacioparadisi.Grades;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -404,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Grades/Grades.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8T85WESY64;
 				INFOPLIST_FILE = Grades/Info.plist;
@@ -413,6 +418,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ignacioparadisi.Grades;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
