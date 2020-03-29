@@ -18,6 +18,8 @@
 		324FD374243137470005B077 /* TermTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD373243137470005B077 /* TermTableViewCellVM.swift */; };
 		324FD3772431378B0005B077 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD3762431378B0005B077 /* Term.swift */; };
 		324FD37A243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD379243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift */; };
+		324FD37C243145DB0005B077 /* Gradable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD37B243145DB0005B077 /* Gradable.swift */; };
+		324FD37E24314DFE0005B077 /* SimulatorsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 324FD37D24314DFE0005B077 /* SimulatorsList.txt */; };
 		3260DEEE2431144C00A502A4 /* GradesSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DEED2431144C00A502A4 /* GradesSplitViewController.swift */; };
 		3260DEF2243115D600A502A4 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DEF1243115D600A502A4 /* TermsViewController.swift */; };
 		3260DEF4243116D100A502A4 /* NSLayoutAnchot+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DEF3243116D100A502A4 /* NSLayoutAnchot+Extension.swift */; };
@@ -56,6 +58,8 @@
 		324FD373243137470005B077 /* TermTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTableViewCellVM.swift; sourceTree = "<group>"; };
 		324FD3762431378B0005B077 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		324FD379243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSToolbarItemIdentifier+Extension.swift"; sourceTree = "<group>"; };
+		324FD37B243145DB0005B077 /* Gradable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradable.swift; sourceTree = "<group>"; };
+		324FD37D24314DFE0005B077 /* SimulatorsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimulatorsList.txt; sourceTree = "<group>"; };
 		3260DEE724310E7100A502A4 /* Grades.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Grades.entitlements; sourceTree = "<group>"; };
 		3260DEED2431144C00A502A4 /* GradesSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesSplitViewController.swift; sourceTree = "<group>"; };
 		3260DEF1243115D600A502A4 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				3260DEE624310C6A00A502A4 /* Utilities */,
 				324FD36F24312B510005B077 /* Localizables */,
 				3260DEE424310A7200A502A4 /* Resources */,
+				324FD37D24314DFE0005B077 /* SimulatorsList.txt */,
 			);
 			path = Grades;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				324FD3762431378B0005B077 /* Term.swift */,
+				324FD37B243145DB0005B077 /* Gradable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				323F2570243105F800B9A4C8 /* LaunchScreen.storyboard in Resources */,
+				324FD37E24314DFE0005B077 /* SimulatorsList.txt in Resources */,
 				323F256D243105F800B9A4C8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +391,7 @@
 				3260DEFA24311BA100A502A4 /* TermTableViewCell.swift in Sources */,
 				3260DEFC24311BDA00A502A4 /* UITableView+Extension.swift in Sources */,
 				3260DEF2243115D600A502A4 /* TermsViewController.swift in Sources */,
+				324FD37C243145DB0005B077 /* Gradable.swift in Sources */,
 				323F2563243105F600B9A4C8 /* SceneDelegate.swift in Sources */,
 				3260DF002431225600A502A4 /* GradeCardView.swift in Sources */,
 				3260DF032431226D00A502A4 /* TermGradeCardTableViewCell.swift in Sources */,

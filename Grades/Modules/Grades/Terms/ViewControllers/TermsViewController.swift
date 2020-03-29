@@ -46,11 +46,11 @@ class TermsViewController: UIViewController {
 extension TermsViewController: UITableViewDataSource {
     var mockData: [Term] {
         return [
-            Term(name: "Term 1", grade: 10),
-            Term(name: "Term 2", grade: 10),
-            Term(name: "Term 3", grade: 10),
-            Term(name: "Term 4", grade: 10),
-            Term(name: "Term 5", grade: 10)
+            Term(name: "Term 1", grade: 20, maxGrade: 20, minGrade: 10),
+            Term(name: "Term 2", grade: 15, maxGrade: 20, minGrade: 10),
+            Term(name: "Term 3", grade: 10, maxGrade: 20, minGrade: 10),
+            Term(name: "Term 4", grade: 8, maxGrade: 20, minGrade: 10),
+            Term(name: "Term 5", grade: 12, maxGrade: 20, minGrade: 10)
         ]
     }
     func numberOfSections(in tableView: UITableView) -> Int {

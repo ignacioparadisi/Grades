@@ -56,6 +56,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
+    /// Adds a toolbar to the app if it's running on macOS
+    /// - Parameter scene: Current window scene
     private func setupToolbar(for scene: UIWindowScene) {
         #if targetEnvironment(macCatalyst)
         guard let titlebar = scene.titlebar else { return }
@@ -68,6 +70,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+// MARK: - NSToolbarDelegate
 #if targetEnvironment(macCatalyst)
 extension SceneDelegate: NSToolbarDelegate {
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {

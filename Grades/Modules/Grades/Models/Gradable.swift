@@ -1,5 +1,5 @@
 //
-//  Term.swift
+//  Gradable.swift
 //  Grades
 //
 //  Created by Ignacio Paradisi on 3/29/20.
@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct Term: Gradable {
-    var name: String
-    var grade: Float
-    var maxGrade: Float
-    var minGrade: Float
+protocol Gradable {
+    var grade: Float { get set }
+    var maxGrade: Float { get set }
+    var minGrade: Float { get set }
 }

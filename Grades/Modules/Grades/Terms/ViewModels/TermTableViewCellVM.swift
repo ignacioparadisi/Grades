@@ -6,16 +6,19 @@
 //  Copyright © 2020 Ignacio Paradisi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TermTableViewCellVM: GradableTableViewCellRepresentable {
-    // MARK: - Properties
+    // MARK: Properties
     private let term: Term
     var text: String {
         term.name
     }
     var grade: Float {
         term.grade
+    }
+    var statusColor: UIColor {
+        return UIColor.getColor(for: term)
     }
     
     init(term: Term) {

@@ -10,6 +10,25 @@ import UIKit
 
 extension UIColor {
     
+    /// Get color depending on grade
+    /// Green if is a good grade
+    /// Yellow if is a normal grade
+    /// Red if is a bad grade
+    ///
+    /// - Parameter gradable: Gradable to evaluate
+    /// - Returns: UIColor depending on grade
+    static func getColor(for gradable: Gradable) -> UIColor {
+        let roundedGrade = gradable.grade.rounded()
+        let minGreenGrade = gradable.maxGrade - ((gradable.maxGrade - gradable.minGrade) / 3)
+        if roundedGrade <= gradable.maxGrade, roundedGrade >= minGreenGrade {
+            return .systemGreen
+        } else if roundedGrade < minGreenGrade, roundedGrade >= gradable.minGrade {
+            return .systemYellow
+        } else {
+            return .systemRed
+        }
+    }
+    
     /// Creates a color lighter than self
     /// - Parameter percentage: Percentage of lighness
     /// - Returns: Color lighter than self
