@@ -9,8 +9,8 @@
 import UIKit
 
 protocol GradableTableViewCellRepresentable {
-    var name: String { get set }
-    var grade: Float { get set }
+    var text: String { get }
+    var grade: Float { get }
 }
 
 class TermTableViewCell: UITableViewCell, ReusableView {
@@ -22,8 +22,24 @@ class TermTableViewCell: UITableViewCell, ReusableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Functions
     func configure(with representable: GradableTableViewCellRepresentable) {
-        textLabel?.text = representable.name
+        textLabel?.text = representable.text
+        
+        let hoverGesture = UIHoverGestureRecognizer(target: self, action: #selector(setHoverColor(_:)))
+        contentView.addGestureRecognizer(hoverGesture)
+    }
+    
+    @objc private func setHoverColor(_ gesture: UIHoverGestureRecognizer) {
+        switch gesture.state {
+        case .began, .changed:
+            backgroundColor = .systemGray2
+        case .ended:
+            backgroundColor = nil
+        default:
+            break
+        }
     }
     
 }

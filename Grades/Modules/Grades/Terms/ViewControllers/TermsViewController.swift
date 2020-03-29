@@ -44,8 +44,14 @@ class TermsViewController: UIViewController {
 }
 
 extension TermsViewController: UITableViewDataSource {
-    var mockData: [String] {
-        return ["Term 1", "Term 1", "Term 1", "Term 1", "Term 1", "Term 1"]
+    var mockData: [Term] {
+        return [
+            Term(name: "Term 1", grade: 10),
+            Term(name: "Term 2", grade: 10),
+            Term(name: "Term 3", grade: 10),
+            Term(name: "Term 4", grade: 10),
+            Term(name: "Term 5", grade: 10)
+        ]
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -68,7 +74,7 @@ extension TermsViewController: UITableViewDataSource {
             return cell
         }
         let cell = tableView.dequeueReusableCell(for: indexPath) as TermTableViewCell
-        cell.textLabel?.text = mockData[indexPath.row]
+        cell.configure(with: TermTableViewCellVM(term: mockData[indexPath.row]))
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
