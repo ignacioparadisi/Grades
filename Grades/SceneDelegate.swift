@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new
         // (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        setupToolbar(for: windowScene)
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = GradesSplitViewController()
         window?.makeKeyAndVisible()
@@ -54,5 +55,44 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
+    
+    private func setupToolbar(for scene: UIWindowScene) {
+        #if targetEnvironment(macCatalyst)
+        guard let titlebar = scene.titlebar else { return }
+        let toolbar = NSToolbar(identifier: "GradesToolbar")
+        toolbar.delegate = self
+        titlebar.toolbar = toolbar
+        titlebar.titleVisibility = .hidden
+        #endif
+    }
 
 }
+
+#if targetEnvironment(macCatalyst)
+extension SceneDelegate: NSToolbarDelegate {
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return [.flexibleSpace, .add, .title]
+    }
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return [.flexibleSpace, .title, .flexibleSpace, .add]
+    }
+    func toolbar(_ toolbar: NSToolbar,
+                 itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
+                 willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        var item: NSToolbarItem?
+        switch itemIdentifier {
+        case .title:
+            item = NSToolbarItem(itemIdentifier: .title)
+            item?.title = "Grades"
+        case .add:
+            let barButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+            item = NSToolbarItem(itemIdentifier: .add, barButtonItem: barButton)
+            item?.label = "Add"
+            return item
+        default:
+            break
+        }
+        return item
+    }
+}
+#endif
