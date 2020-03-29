@@ -20,7 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         setupToolbar(for: windowScene)
         window = UIWindow(windowScene: windowScene)
+        #if targetEnvironment(macCatalyst)
         window?.rootViewController = GradesSplitViewController()
+        #else
+        window?.rootViewController = MainTabBarController()
+        #endif
         window?.makeKeyAndVisible()
     }
 

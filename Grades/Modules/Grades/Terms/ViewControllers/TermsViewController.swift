@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension TermsViewController {
+    private enum Section: Int, CaseIterable {
+        case grade
+        #if targetEnvironment(macCatalyst)
+        case home
+        #endif
+        case terms
+    }
+}
+
 class TermsViewController: UIViewController {
     var tableView: UITableView = {
         var tableView: UITableView!
@@ -21,13 +31,15 @@ class TermsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMacOS()
+        navigationController?.navigationBar.prefersLargeTitles = true
         title = "Terms"
+        setupMacOS()
+        tableView.dataSource = self
+        tableView.delegate = self
         view.addSubview(tableView)
         tableView.anchor.edgesToSuperview().activate()
         tableView.register(TermTableViewCell.self)
         tableView.register(TermGradeCardTableViewCell.self)
-        tableView.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,6 +55,7 @@ class TermsViewController: UIViewController {
 
 }
 
+// MARK: - UITableViewDataSource
 extension TermsViewController: UITableViewDataSource {
     var mockData: [Term] {
         return [
@@ -54,35 +67,53 @@ extension TermsViewController: UITableViewDataSource {
         ]
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return Section.allCases.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        guard let section = Section(rawValue: section) else { return 0 }
+        switch section {
+        case .grade:
             return 1
-        } else if section == 1 {
+        case .terms:
+            return mockData.count
+        #if targetEnvironment(macCatalyst)
+        case .home:
             return 1
+        #endif
         }
-        return mockData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        guard let section = Section(rawValue: indexPath.section) else { return UITableViewCell() }
+        switch section {
+        case .grade:
             let cell = tableView.dequeueReusableCell(for: indexPath) as TermGradeCardTableViewCell
             return cell
-        } else if indexPath.section == 1 {
+        case .terms:
             let cell = tableView.dequeueReusableCell(for: indexPath) as TermTableViewCell
-            cell.textLabel?.text = "Notifications"
+            cell.configure(with: TermTableViewCellVM(term: mockData[indexPath.row]))
             return cell
+        #if targetEnvironment(macCatalyst)
+        case .home:
+            let cell = tableView.dequeueReusableCell(for: indexPath) as TermTableViewCell
+            cell.textLabel?.text = "Home"
+            return cell
+        #endif
         }
-        let cell = tableView.dequeueReusableCell(for: indexPath) as TermTableViewCell
-        cell.configure(with: TermTableViewCellVM(term: mockData[indexPath.row]))
-        return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 2 {
+        guard let section = Section(rawValue: section) else { return nil }
+        switch section {
+        case .terms:
             return "Terms"
-        } else if section == 1 {
-            return "Notifications"
+        default:
+            return nil
         }
-        return nil
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension TermsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showDetailViewController(ViewController(), sender: nil)
     }
 }

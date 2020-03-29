@@ -46,8 +46,10 @@ class TermTableViewCell: UITableViewCell, ReusableView {
         detailTextLabel?.text = "Mar. 2019 - Sep. 2020"
         statusBar.backgroundColor = representable.statusColor
         gradeLabel.text = "\(representable.grade)"
+        #if targetEnvironment(macCatalyst)
         let hoverGesture = UIHoverGestureRecognizer(target: self, action: #selector(setHoverColor(_:)))
         contentView.addGestureRecognizer(hoverGesture)
+        #endif
     }
     
     @objc private func setHoverColor(_ gesture: UIHoverGestureRecognizer) {

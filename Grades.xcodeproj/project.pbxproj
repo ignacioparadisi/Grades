@@ -20,6 +20,8 @@
 		324FD37A243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD379243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift */; };
 		324FD37C243145DB0005B077 /* Gradable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD37B243145DB0005B077 /* Gradable.swift */; };
 		324FD37E24314DFE0005B077 /* SimulatorsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 324FD37D24314DFE0005B077 /* SimulatorsList.txt */; };
+		324FD3802431583F0005B077 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD37F2431583F0005B077 /* MainTabBarController.swift */; };
+		324FD382243159AB0005B077 /* HomeSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD381243159AB0005B077 /* HomeSplitViewController.swift */; };
 		3260DEEE2431144C00A502A4 /* GradesSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DEED2431144C00A502A4 /* GradesSplitViewController.swift */; };
 		3260DEF2243115D600A502A4 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DEF1243115D600A502A4 /* TermsViewController.swift */; };
 		3260DEF4243116D100A502A4 /* NSLayoutAnchot+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DEF3243116D100A502A4 /* NSLayoutAnchot+Extension.swift */; };
@@ -60,6 +62,8 @@
 		324FD379243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSToolbarItemIdentifier+Extension.swift"; sourceTree = "<group>"; };
 		324FD37B243145DB0005B077 /* Gradable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradable.swift; sourceTree = "<group>"; };
 		324FD37D24314DFE0005B077 /* SimulatorsList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimulatorsList.txt; sourceTree = "<group>"; };
+		324FD37F2431583F0005B077 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		324FD381243159AB0005B077 /* HomeSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSplitViewController.swift; sourceTree = "<group>"; };
 		3260DEE724310E7100A502A4 /* Grades.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Grades.entitlements; sourceTree = "<group>"; };
 		3260DEED2431144C00A502A4 /* GradesSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesSplitViewController.swift; sourceTree = "<group>"; };
 		3260DEF1243115D600A502A4 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				3260DEFD2431224500A502A4 /* Views */,
 				3260DEEF243115AE00A502A4 /* Terms */,
 				3260DEED2431144C00A502A4 /* GradesSplitViewController.swift */,
+				324FD37F2431583F0005B077 /* MainTabBarController.swift */,
+				324FD381243159AB0005B077 /* HomeSplitViewController.swift */,
 			);
 			path = Grades;
 			sourceTree = "<group>";
@@ -378,6 +384,8 @@
 			files = (
 				323F2565243105F600B9A4C8 /* ViewController.swift in Sources */,
 				3260DEEE2431144C00A502A4 /* GradesSplitViewController.swift in Sources */,
+				324FD3802431583F0005B077 /* MainTabBarController.swift in Sources */,
+				324FD382243159AB0005B077 /* HomeSplitViewController.swift in Sources */,
 				324FD374243137470005B077 /* TermTableViewCellVM.swift in Sources */,
 				3260DF012431225600A502A4 /* GradientView.swift in Sources */,
 				324FD37124312C2D0005B077 /* Utilities.swift in Sources */,
