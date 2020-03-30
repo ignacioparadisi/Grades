@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TermTableViewCellVM: GradableTableViewCellRepresentable {
+class TermTableViewCellVM: GradableRepresentable {
     // MARK: Properties
     private let term: Term
     var text: String {
@@ -19,6 +19,12 @@ class TermTableViewCellVM: GradableTableViewCellRepresentable {
     }
     var statusColor: UIColor {
         return UIColor.getColor(for: term)
+    }
+    var maxGrade: Float {
+        return term.maxGrade
+    }
+    var minGrade: Float {
+        return term.minGrade
     }
     
     init(term: Term) {

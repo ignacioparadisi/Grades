@@ -32,6 +32,7 @@
 		3260DF012431225600A502A4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DEFF2431225600A502A4 /* GradientView.swift */; };
 		3260DF032431226D00A502A4 /* TermGradeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DF022431226D00A502A4 /* TermGradeCardTableViewCell.swift */; };
 		3260DF052431230000A502A4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260DF042431230000A502A4 /* UIColor+Extension.swift */; };
+		327530972431763A009CA924 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327530962431763A009CA924 /* ProgressRingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		3260DEFF2431225600A502A4 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		3260DF022431226D00A502A4 /* TermGradeCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermGradeCardTableViewCell.swift; sourceTree = "<group>"; };
 		3260DF042431230000A502A4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		327530962431763A009CA924 /* ProgressRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,12 +207,10 @@
 		3260DEEC243113F600A502A4 /* Grades */ = {
 			isa = PBXGroup;
 			children = (
+				3260DEEF243115AE00A502A4 /* Terms */,
+				327530952431761A009CA924 /* ViewControllers */,
 				324FD375243137800005B077 /* Models */,
 				3260DEFD2431224500A502A4 /* Views */,
-				3260DEEF243115AE00A502A4 /* Terms */,
-				3260DEED2431144C00A502A4 /* GradesSplitViewController.swift */,
-				324FD37F2431583F0005B077 /* MainTabBarController.swift */,
-				324FD381243159AB0005B077 /* HomeSplitViewController.swift */,
 			);
 			path = Grades;
 			sourceTree = "<group>";
@@ -255,8 +255,19 @@
 				3260DF022431226D00A502A4 /* TermGradeCardTableViewCell.swift */,
 				3260DEFE2431225600A502A4 /* GradeCardView.swift */,
 				3260DEFF2431225600A502A4 /* GradientView.swift */,
+				327530962431763A009CA924 /* ProgressRingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		327530952431761A009CA924 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3260DEED2431144C00A502A4 /* GradesSplitViewController.swift */,
+				324FD37F2431583F0005B077 /* MainTabBarController.swift */,
+				324FD381243159AB0005B077 /* HomeSplitViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +414,7 @@
 				323F2563243105F600B9A4C8 /* SceneDelegate.swift in Sources */,
 				3260DF002431225600A502A4 /* GradeCardView.swift in Sources */,
 				3260DF032431226D00A502A4 /* TermGradeCardTableViewCell.swift in Sources */,
+				327530972431763A009CA924 /* ProgressRingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
