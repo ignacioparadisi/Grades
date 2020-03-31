@@ -23,14 +23,12 @@ class TermTableViewCell: UITableViewCell, ReusableView {
     // MARK: Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        addSubview(progressRing)
+        contentView.addSubview(progressRing)
         progressRing.anchor
             .topToSuperview(constant: 4)
             .bottomToSuperview(constant: -4)
             .trailingToSuperview(constant: -16)
             .activate()
-        imageView?.layer.cornerRadius = 10
-        imageView?.layer.masksToBounds = true
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -47,17 +45,6 @@ class TermTableViewCell: UITableViewCell, ReusableView {
         let hoverGesture = UIHoverGestureRecognizer(target: self, action: #selector(setHoverColor(_:)))
         contentView.addGestureRecognizer(hoverGesture)
         #endif
-    }
-    
-    func image(from view: UIView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        defer { UIGraphicsEndImageContext() }
-        if let context = UIGraphicsGetCurrentContext() {
-            view.layer.render(in: context)
-            let image = UIGraphicsGetImageFromCurrentImageContext()
-            return image
-        }
-        return nil
     }
     
     @objc private func setHoverColor(_ gesture: UIHoverGestureRecognizer) {

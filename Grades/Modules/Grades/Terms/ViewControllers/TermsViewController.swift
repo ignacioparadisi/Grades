@@ -9,7 +9,7 @@
 import UIKit
 
 extension TermsViewController {
-    private enum Section: Int, CaseIterable {
+    enum Section: Int, CaseIterable {
         case grade
         #if targetEnvironment(macCatalyst)
         case home
@@ -19,25 +19,21 @@ extension TermsViewController {
 }
 
 class TermsViewController: UIViewController {
-    var tableView: UITableView = {
-        var tableView: UITableView!
-        #if targetEnvironment(macCatalyst)
-        tableView = UITableView()
-        #else
-        tableView = UITableView(frame: .zero, style: .insetGrouped)
-        #endif
-        return tableView
-    }()
+    // MARK: Properties
+    var viewModel = TermsViewControllerVM()
+    var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView = UITableView(frame: .zero, style: viewModel.tableViewStyle)
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Terms"
+        title = GradesStrings.terms.localized
         setupMacOS()
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)
         tableView.anchor.edgesToSuperview().activate()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         tableView.register(TermTableViewCell.self)
         tableView.register(TermGradeCardTableViewCell.self)
     }
@@ -57,30 +53,11 @@ class TermsViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension TermsViewController: UITableViewDataSource {
-    var mockData: [Term] {
-        return [
-            Term(name: "Term 1", grade: 20, maxGrade: 20, minGrade: 10),
-            Term(name: "Term 2", grade: 15, maxGrade: 20, minGrade: 10),
-            Term(name: "Term 3", grade: 10, maxGrade: 20, minGrade: 10),
-            Term(name: "Term 4", grade: 8, maxGrade: 20, minGrade: 10),
-            Term(name: "Term 5", grade: 12, maxGrade: 20, minGrade: 10)
-        ]
-    }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.allCases.count
+        return viewModel.numberOfSections
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = Section(rawValue: section) else { return 0 }
-        switch section {
-        case .grade:
-            return 1
-        case .terms:
-            return mockData.count
-        #if targetEnvironment(macCatalyst)
-        case .home:
-            return 1
-        #endif
-        }
+        return viewModel.numberOfRows(in: section)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section) else { return UITableViewCell() }
@@ -89,13 +66,14 @@ extension TermsViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(for: indexPath) as TermGradeCardTableViewCell
             return cell
         case .terms:
+            guard let representable = viewModel.termCellRepresentable(for: indexPath) else { return UITableViewCell() }
             let cell = tableView.dequeueReusableCell(for: indexPath) as TermTableViewCell
-            cell.configure(with: TermTableViewCellVM(term: mockData[indexPath.row]))
+            cell.configure(with: representable)
             return cell
         #if targetEnvironment(macCatalyst)
         case .home:
-            let cell = tableView.dequeueReusableCell(for: indexPath) as TermTableViewCell
-            cell.textLabel?.text = "Home"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
+            cell.textLabel?.text = GradesStrings.home.localized
             return cell
         #endif
         }
@@ -108,6 +86,36 @@ extension TermsViewController: UITableViewDataSource {
         default:
             return nil
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let section = Section(rawValue: section) else { return nil }
+        if section != .terms { return nil }
+        let view = UIView()
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline    )
+        label.text = GradesStrings.terms.localized
+        let button = UIButton()
+        button.setImage(UIImage(systemName: Constants.Images.plus), for: .normal)
+        view.addSubview(label)
+        view.addSubview(button)
+        label.anchor
+            .bottomToSuperview()
+            .leadingToSuperview(constant: 10)
+            .activate()
+        button.anchor
+            .topToSuperview()
+            .bottomToSuperview()
+            .trailingToSuperview(constant: -16)
+            .leading(to: label.trailingAnchor)
+            .activate()
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let section = Section(rawValue: section) else { return 0.0 }
+        if section != .terms { return 0.0 }
+        return 44
     }
 }
 

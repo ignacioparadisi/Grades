@@ -15,9 +15,11 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
-        gradesViewController.tabBarItem = UITabBarItem(title: "Grades", image: UIImage(systemName: "star.fill"), tag: 1)
+        homeViewController.tabBarItem = UITabBarItem(title: GradesStrings.home.localized,
+                                                     image: UIImage(systemName: Constants.Images.houseFill), tag: 0)
+        gradesViewController.tabBarItem = UITabBarItem(title: GradesStrings.grades.localized,
+                                                       image: UIImage(systemName: Constants.Images.starFill), tag: 1)
         viewControllers = [homeViewController, gradesViewController]
-    }
+    }       
 
 }
