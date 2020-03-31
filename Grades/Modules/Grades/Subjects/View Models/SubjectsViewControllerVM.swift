@@ -32,6 +32,8 @@ class SubjectsViewControllerVM {
            switch section {
            case .grade:
                return 1
+           case .chart:
+            return 1
            case .subjects:
                return subjects.count
            }

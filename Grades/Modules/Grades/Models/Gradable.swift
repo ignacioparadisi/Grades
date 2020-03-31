@@ -9,6 +9,7 @@
 import Foundation
 
 protocol Gradable {
+    var name: String { get set }
     var grade: Float { get set }
     var maxGrade: Float { get set }
     var minGrade: Float { get set }

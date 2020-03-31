@@ -11,6 +11,7 @@ import UIKit
 extension SubjectsViewController {
     enum Section: Int, CaseIterable {
         case grade
+        case chart
         case subjects
     }
 }
@@ -33,6 +34,7 @@ class SubjectsViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         tableView.register(GradableTableViewCell.self)
         tableView.register(GradeCardTableViewCell.self)
+        tableView.register(BarChartTableViewCell.self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,6 +63,16 @@ extension SubjectsViewController: UITableViewDataSource {
         switch section {
         case .grade:
             let cell = tableView.dequeueReusableCell(for: indexPath) as GradeCardTableViewCell
+            return cell
+        case .chart:
+            let cell = tableView.dequeueReusableCell(for: indexPath) as BarChartTableViewCell
+            cell.configure(with: [
+                Term(name: "Esto es un texto burda burda de largo para ver hasta donde llega", grade: 20, maxGrade: 20, minGrade: 10),
+                Term(name: "Term 2", grade: 15, maxGrade: 20, minGrade: 10),
+                Term(name: "Term 3", grade: 10, maxGrade: 20, minGrade: 10),
+                Term(name: "Term 4", grade: 8, maxGrade: 20, minGrade: 10),
+                Term(name: "Term 5", grade: 12, maxGrade: 20, minGrade: 10)
+            ])
             return cell
         case .subjects:
             guard var representable = viewModel.termCellRepresentable(for: indexPath) else { return UITableViewCell() }

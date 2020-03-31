@@ -49,7 +49,7 @@ class GradableTableViewCell: UITableViewCell, ReusableView {
         if let view = UIHostingController(rootView: GradableView(representable: representable)).view {
             contentView.subviews.last?.removeFromSuperview()
             contentView.addSubview(view)
-            view.backgroundColor = .none
+            view.backgroundColor = .clear
             view.anchor.edgesToSuperview(insets: UIEdgeInsets(top: 8, left: 20, bottom: -8, right: -20)).activate()
         }
         representable.didAppear = false
@@ -59,9 +59,9 @@ class GradableTableViewCell: UITableViewCell, ReusableView {
     @objc private func setHoverColor(_ gesture: UIHoverGestureRecognizer) {
         switch gesture.state {
         case .began, .changed:
-            backgroundColor = .systemGray2
+            contentView.backgroundColor = .systemGray2
         case .ended:
-            backgroundColor = nil
+            contentView.backgroundColor = .clear
         default:
             break
         }
