@@ -29,6 +29,18 @@ extension UIColor {
         }
     }
     
+    static func getColor(for gradable: GradableRepresentable) -> UIColor {
+        let roundedGrade = gradable.grade.rounded()
+        let minGreenGrade = gradable.maxGrade - ((gradable.maxGrade - gradable.minGrade) / 3)
+        if roundedGrade <= gradable.maxGrade, roundedGrade >= minGreenGrade {
+            return .systemGreen
+        } else if roundedGrade < minGreenGrade, roundedGrade >= gradable.minGrade {
+            return .systemYellow
+        } else {
+            return .systemRed
+        }
+    }
+    
     /// Creates a color lighter than self
     /// - Parameter percentage: Percentage of lighness
     /// - Returns: Color lighter than self

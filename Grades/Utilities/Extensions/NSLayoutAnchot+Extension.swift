@@ -216,16 +216,16 @@ public struct Anchor {
         return update(edge: .trailing, constraint: view.trailingAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant))
     }
     // MARK: Anchor lessOrEqual
-    public func top(lesserOrEqual anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Anchor {
+    public func top(lessOrEqual anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Anchor {
         return update(edge: .top, constraint: view.topAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant))
     }
-    public func leading(lesserOrEqual anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Anchor {
+    public func leading(lessOrEqual anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Anchor {
         return update(edge: .leading, constraint: view.leadingAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant))
     }
-    public func bottom(lesserOrEqual anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Anchor {
+    public func bottom(lessOrEqual anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Anchor {
         return update(edge: .bottom, constraint: view.bottomAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant))
     }
-    public func trailing(lesserOrEqual anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Anchor {
+    public func trailing(lessOrEqual anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Anchor {
         return update(edge: .trailing, constraint: view.trailingAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant))
     }
     // MARK: Dimension anchors

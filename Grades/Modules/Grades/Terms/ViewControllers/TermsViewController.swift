@@ -25,6 +25,7 @@ class TermsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         tableView = UITableView(frame: .zero, style: viewModel.tableViewStyle)
         navigationController?.navigationBar.prefersLargeTitles = true
         title = GradesStrings.terms.localized
@@ -34,7 +35,7 @@ class TermsViewController: UIViewController {
         view.addSubview(tableView)
         tableView.anchor.edgesToSuperview().activate()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
-        tableView.register(TermTableViewCell.self)
+        tableView.register(GradableTableViewCell.self)
         tableView.register(TermGradeCardTableViewCell.self)
     }
     
@@ -67,7 +68,7 @@ extension TermsViewController: UITableViewDataSource {
             return cell
         case .terms:
             guard let representable = viewModel.termCellRepresentable(for: indexPath) else { return UITableViewCell() }
-            let cell = tableView.dequeueReusableCell(for: indexPath) as TermTableViewCell
+            let cell = tableView.dequeueReusableCell(for: indexPath) as GradableTableViewCell
             cell.configure(with: representable)
             return cell
         #if targetEnvironment(macCatalyst)
@@ -78,6 +79,7 @@ extension TermsViewController: UITableViewDataSource {
         #endif
         }
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let section = Section(rawValue: section) else { return nil }
         switch section {
@@ -88,6 +90,7 @@ extension TermsViewController: UITableViewDataSource {
         }
     }
     
+    #if targetEnvironment(macCatalyst)
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let section = Section(rawValue: section) else { return nil }
         if section != .terms { return nil }
@@ -100,6 +103,7 @@ extension TermsViewController: UITableViewDataSource {
         view.addSubview(label)
         view.addSubview(button)
         label.anchor
+            .topToSuperview()
             .bottomToSuperview()
             .leadingToSuperview(constant: 10)
             .activate()
@@ -111,6 +115,7 @@ extension TermsViewController: UITableViewDataSource {
             .activate()
         return view
     }
+    #endif
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard let section = Section(rawValue: section) else { return 0.0 }
@@ -122,6 +127,12 @@ extension TermsViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TermsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showDetailViewController(ViewController(), sender: nil)
+        guard let section = Section(rawValue: indexPath.section) else { return }
+        switch section {
+        case .terms:
+            showDetailViewController(UINavigationController(rootViewController: ViewController()), sender: nil)
+        default:
+            break
+        }
     }
 }

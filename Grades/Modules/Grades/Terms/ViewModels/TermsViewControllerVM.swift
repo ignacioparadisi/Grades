@@ -12,7 +12,7 @@ class TermsViewControllerVM {
     // MARK: Properties
     typealias Section = TermsViewController.Section
     private var terms: [Term] = [
-        Term(name: "Term 1", grade: 20, maxGrade: 20, minGrade: 10),
+        Term(name: "Esto es un texto burda burda de largo para ver hasta donde llega", grade: 20, maxGrade: 20, minGrade: 10),
         Term(name: "Term 2", grade: 15, maxGrade: 20, minGrade: 10),
         Term(name: "Term 3", grade: 10, maxGrade: 20, minGrade: 10),
         Term(name: "Term 4", grade: 8, maxGrade: 20, minGrade: 10),
