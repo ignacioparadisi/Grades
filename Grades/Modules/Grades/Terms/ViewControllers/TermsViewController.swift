@@ -67,9 +67,9 @@ extension TermsViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(for: indexPath) as TermGradeCardTableViewCell
             return cell
         case .terms:
-            guard let representable = viewModel.termCellRepresentable(for: indexPath) else { return UITableViewCell() }
+            guard var representable = viewModel.termCellRepresentable(for: indexPath) else { return UITableViewCell() }
             let cell = tableView.dequeueReusableCell(for: indexPath) as GradableTableViewCell
-            cell.configure(with: representable)
+            cell.configure(with: &representable)
             return cell
         #if targetEnvironment(macCatalyst)
         case .home:
@@ -130,7 +130,8 @@ extension TermsViewController: UITableViewDelegate {
         guard let section = Section(rawValue: indexPath.section) else { return }
         switch section {
         case .terms:
-            showDetailViewController(UINavigationController(rootViewController: ViewController()), sender: nil)
+            let controller = UINavigationController(rootViewController: SubjectsViewController())
+            showDetailViewController(controller, sender: nil)
         default:
             break
         }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321E4B0F243392E6007B5933 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B0E243392E6007B5933 /* SubjectsViewController.swift */; };
+		321E4B1224339343007B5933 /* SubjectsViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B1124339343007B5933 /* SubjectsViewControllerVM.swift */; };
+		321E4B1424339570007B5933 /* GradeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B1324339570007B5933 /* GradeCardTableViewCell.swift */; };
 		323F2561243105F600B9A4C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F2560243105F600B9A4C8 /* AppDelegate.swift */; };
 		323F2563243105F600B9A4C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F2562243105F600B9A4C8 /* SceneDelegate.swift */; };
 		323F2565243105F600B9A4C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F2564243105F600B9A4C8 /* ViewController.swift */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		321E4B0E243392E6007B5933 /* SubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
+		321E4B1124339343007B5933 /* SubjectsViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewControllerVM.swift; sourceTree = "<group>"; };
+		321E4B1324339570007B5933 /* GradeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCardTableViewCell.swift; sourceTree = "<group>"; };
 		323F255D243105F600B9A4C8 /* Grades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grades.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		323F2560243105F600B9A4C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		323F2562243105F600B9A4C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +115,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		321E4B0C243392C1007B5933 /* Subjects */ = {
+			isa = PBXGroup;
+			children = (
+				321E4B1024339329007B5933 /* View Models */,
+				321E4B0D243392D8007B5933 /* View Controllers */,
+			);
+			path = Subjects;
+			sourceTree = "<group>";
+		};
+		321E4B0D243392D8007B5933 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				321E4B0E243392E6007B5933 /* SubjectsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		321E4B1024339329007B5933 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				321E4B1124339343007B5933 /* SubjectsViewControllerVM.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		323F2554243105F600B9A4C8 = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +254,7 @@
 		3260DEEC243113F600A502A4 /* Grades */ = {
 			isa = PBXGroup;
 			children = (
+				321E4B0C243392C1007B5933 /* Subjects */,
 				3260DEEF243115AE00A502A4 /* Terms */,
 				327530952431761A009CA924 /* ViewControllers */,
 				324FD375243137800005B077 /* Models */,
@@ -273,6 +305,7 @@
 				3260DEFE2431225600A502A4 /* GradeCardView.swift */,
 				3260DEFF2431225600A502A4 /* GradientView.swift */,
 				327530962431763A009CA924 /* ProgressRingView.swift */,
+				321E4B1324339570007B5933 /* GradeCardTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,6 +465,7 @@
 				32CDB01F24323F9700F5CD5F /* TermsViewControllerVM.swift in Sources */,
 				324FD3802431583F0005B077 /* MainTabBarController.swift in Sources */,
 				324FD382243159AB0005B077 /* HomeSplitViewController.swift in Sources */,
+				321E4B1424339570007B5933 /* GradeCardTableViewCell.swift in Sources */,
 				324FD374243137470005B077 /* TermTableViewCellVM.swift in Sources */,
 				3260DF012431225600A502A4 /* GradientView.swift in Sources */,
 				32CDB01D24323E0300F5CD5F /* String+Extension.swift in Sources */,
@@ -448,12 +482,14 @@
 				3260DF052431230000A502A4 /* UIColor+Extension.swift in Sources */,
 				3260DEFA24311BA100A502A4 /* TermTableViewCell.swift in Sources */,
 				3260DEFC24311BDA00A502A4 /* UITableView+Extension.swift in Sources */,
+				321E4B0F243392E6007B5933 /* SubjectsViewController.swift in Sources */,
 				3260DEF2243115D600A502A4 /* TermsViewController.swift in Sources */,
 				324FD37C243145DB0005B077 /* Gradable.swift in Sources */,
 				323F2563243105F600B9A4C8 /* SceneDelegate.swift in Sources */,
 				3260DF002431225600A502A4 /* GradeCardView.swift in Sources */,
 				3260DF032431226D00A502A4 /* TermGradeCardTableViewCell.swift in Sources */,
 				327530972431763A009CA924 /* ProgressRingView.swift in Sources */,
+				321E4B1224339343007B5933 /* SubjectsViewControllerVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

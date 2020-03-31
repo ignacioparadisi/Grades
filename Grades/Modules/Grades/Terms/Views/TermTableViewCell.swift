@@ -6,7 +6,7 @@
 //  Copyright © 2020 Ignacio Paradisi. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
 protocol GradableRepresentable {
     var text: String { get }
@@ -14,94 +14,14 @@ protocol GradableRepresentable {
     var maxGrade: Float { get }
     var minGrade: Float { get }
     var statusColor: UIColor { get }
+    var didAppear: Bool { get set }
 }
 
-//class TermTableViewCell: UITableViewCell, ReusableView {
-//    // MARK: Properties
-//    private let ringRadius: CGFloat = 25
-//    private let progressRing = ProgressRingView(radius: 25)
-//
-//    // MARK: Initializer
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-//        contentView.addSubview(progressRing)
-//        progressRing.anchor
-//            .centerYToSuperview(constant: 5)
-//            .top(greaterOrEqual: contentView.topAnchor, constant: 10)
-//            .bottom(lessOrEqual: contentView.bottomAnchor)
-//            .trailingToSuperview(constant: -20)
-//        .width(constant: 50)
-//            .activate(priority: .defaultHigh)
-//        progressRing.backgroundColor = .red
-//        textLabel?.backgroundColor = .blue
-//        textLabel?.numberOfLines = 0
-//        let leadingMargin: CGFloat = 18
-//        let ringMargin: CGFloat = 10
-//        let  widthConstant = frame.width - (leadingMargin * 2) - ringMargin - (ringRadius * 2)
-//        print(widthConstant)
-//        if let detailTextLabel = detailTextLabel {
-//            textLabel?.anchor
-//                .width(constant: widthConstant)
-//                .top(greaterOrEqual: contentView.topAnchor, constant: 10)
-//                .leading(to: detailTextLabel.leadingAnchor)
-//                .bottom(to: detailTextLabel.topAnchor, constant: -2)
-//                .trailing(to: progressRing.leadingAnchor, constant: -10)
-//                .activate()
-//        } else {
-//            textLabel?.anchor
-//                .width(constant: widthConstant)
-//                .topToSuperview()
-//                .leadingToSuperview(constant: 20)
-//                .trailing(to: progressRing.leadingAnchor, constant: -10)
-//                .bottomToSuperview()
-//                .activate()
-//
-//        }
-//
-////        if let detailTextLabel = detailTextLabel {
-////            textLabel?.anchor
-////                .leading(to: detailTextLabel.leadingAnchor)
-////                .bottom(to: detailTextLabel.topAnchor, constant: -2)
-////                .activate()
-////        } else {
-////            textLabel?.anchor
-////                .leadingToSuperview(constant: 16)
-////                .topToSuperview()
-////                .bottomToSuperview()
-////                .activate()
-////        }
-//    }
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    // MARK: - Functions
-//    func configure(with representable: GradableRepresentable) {
-//        progressRing.configure(with: representable)
-//        textLabel?.text = representable.text
-//        detailTextLabel?.textColor = .secondaryLabel
-//        detailTextLabel?.text = "Mar. 2019 - Sep. 2020"
-//
-//        #if targetEnvironment(macCatalyst)
-//        let hoverGesture = UIHoverGestureRecognizer(target: self, action: #selector(setHoverColor(_:)))
-//        contentView.addGestureRecognizer(hoverGesture)
-//        #endif
-//    }
-//
-//    @objc private func setHoverColor(_ gesture: UIHoverGestureRecognizer) {
-//        switch gesture.state {
-//        case .began, .changed:
-//            backgroundColor = .systemGray2
-//        case .ended:
-//            backgroundColor = nil
-//        default:
-//            break
-//        }
-//    }
-//
-//}
-
-import SwiftUI
+extension GradableRepresentable {
+    mutating func toggleAppear() {
+        didAppear.toggle()
+    }
+}
 
 class GradableTableViewCell: UITableViewCell, ReusableView {
     
@@ -125,13 +45,14 @@ class GradableTableViewCell: UITableViewCell, ReusableView {
     /// Configures the cell with the gradable information and adds the semi-circle that is in the front
     ///
     /// - Parameter gradable: Gradable to be displayed
-    func configure(with representable: GradableRepresentable) {
+    func configure(with representable: inout GradableRepresentable) {
         if let view = UIHostingController(rootView: GradableView(representable: representable)).view {
             contentView.subviews.last?.removeFromSuperview()
             contentView.addSubview(view)
             view.backgroundColor = .none
             view.anchor.edgesToSuperview(insets: UIEdgeInsets(top: 8, left: 20, bottom: -8, right: -20)).activate()
         }
+        representable.didAppear = false
 
     }
     
@@ -196,8 +117,8 @@ struct GradableCharView: View {
     /// The end angle of the grade graph
     private let endAngle: CGFloat = 0.66
     private let lineWidth: CGFloat = 7
-    private var animation: Animation {
-        Animation.easeInOut(duration: 0.7)
+    private var animation: Animation? {
+        return !self.gradable.didAppear ? Animation.easeInOut(duration: 0.7) : .none
     }
     @State private var gradableEndAngle: CGFloat = 0.0
     
@@ -236,7 +157,7 @@ struct GradableCharView: View {
     }
     
     func animateRing(_ gradable: GradableRepresentable) {
-        withAnimation(self.animation) {
+        withAnimation(animation) {
             self.gradableEndAngle = (CGFloat(self.gradable.grade) * self.endAngle) / CGFloat(self.gradable.maxGrade)
         }
     }

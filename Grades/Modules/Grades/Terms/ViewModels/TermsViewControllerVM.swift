@@ -18,6 +18,7 @@ class TermsViewControllerVM {
         Term(name: "Term 4", grade: 8, maxGrade: 20, minGrade: 10),
         Term(name: "Term 5", grade: 12, maxGrade: 20, minGrade: 10)
     ]
+    private var termsVM: [GradableRepresentable] = []
     var tableViewStyle: UITableView.Style {
         #if targetEnvironment(macCatalyst)
         return .plain
@@ -26,6 +27,11 @@ class TermsViewControllerVM {
     }
     var numberOfSections: Int {
         return Section.allCases.count
+    }
+    init() {
+        terms.forEach { term in
+            termsVM.append(TermTableViewCellVM(term: term))
+        }
     }
     func numberOfRows(in section: Int) -> Int {
         guard let section = Section(rawValue: section) else { return 0 }
@@ -43,6 +49,6 @@ class TermsViewControllerVM {
     func termCellRepresentable(for indexPath: IndexPath) -> GradableRepresentable? {
         let index = indexPath.row
         guard index >= 0, index < terms.count else { return nil }
-        return TermTableViewCellVM(term: terms[index])
+        return termsVM[index]
     }
 }

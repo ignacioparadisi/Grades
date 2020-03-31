@@ -26,6 +26,7 @@ class TermTableViewCellVM: GradableRepresentable {
     var minGrade: Float {
         return term.minGrade
     }
+    var didAppear: Bool = false
     
     init(term: Term) {
         self.term = term

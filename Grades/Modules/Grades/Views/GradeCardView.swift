@@ -90,7 +90,7 @@ class GradeCardView: UIView {
     
     private func createMessageLabel() -> UILabel {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
         label.text = "You are doing great!"
         return label
     }
