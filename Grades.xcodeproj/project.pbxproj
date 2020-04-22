@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3202DE25243A602000FF489A /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202DE24243A602000FF489A /* NotificationName+Extension.swift */; };
 		321E4B0F243392E6007B5933 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B0E243392E6007B5933 /* SubjectsViewController.swift */; };
 		321E4B1224339343007B5933 /* SubjectsViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B1124339343007B5933 /* SubjectsViewControllerVM.swift */; };
 		321E4B1424339570007B5933 /* GradeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B1324339570007B5933 /* GradeCardTableViewCell.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3202DE24243A602000FF489A /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		321E4B0E243392E6007B5933 /* SubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
 		321E4B1124339343007B5933 /* SubjectsViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewControllerVM.swift; sourceTree = "<group>"; };
 		321E4B1324339570007B5933 /* GradeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				3260DF042431230000A502A4 /* UIColor+Extension.swift */,
 				324FD379243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift */,
 				32CDB01C24323E0300F5CD5F /* String+Extension.swift */,
+				3202DE24243A602000FF489A /* NotificationName+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				32CDB01924323D4100F5CD5F /* GradesStrings.swift in Sources */,
 				3260DF052431230000A502A4 /* UIColor+Extension.swift in Sources */,
 				3260DEFA24311BA100A502A4 /* TermTableViewCell.swift in Sources */,
+				3202DE25243A602000FF489A /* NotificationName+Extension.swift in Sources */,
 				3260DEFC24311BDA00A502A4 /* UITableView+Extension.swift in Sources */,
 				321E4B0F243392E6007B5933 /* SubjectsViewController.swift in Sources */,
 				3260DEF2243115D600A502A4 /* TermsViewController.swift in Sources */,

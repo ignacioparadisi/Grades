@@ -130,7 +130,8 @@ extension TermsViewController: UITableViewDelegate {
         guard let section = Section(rawValue: indexPath.section) else { return }
         switch section {
         case .terms:
-            let controller = UINavigationController(rootViewController: SubjectsViewController())
+            let viewModel = self.viewModel.subjectViewModel(for: indexPath)
+            let controller = UINavigationController(rootViewController: SubjectsViewController(viewModel: viewModel))
             showDetailViewController(controller, sender: nil)
         default:
             break

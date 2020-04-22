@@ -13,5 +13,6 @@ class Constants {
         static let plus = "plus"
         static let houseFill = "house.fill"
         static let starFill = "star.fill"
+        static let chevronLeft = "chevron.left"
     }
 }

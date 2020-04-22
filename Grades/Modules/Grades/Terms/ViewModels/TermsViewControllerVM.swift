@@ -51,4 +51,8 @@ class TermsViewControllerVM {
         guard index >= 0, index < terms.count else { return nil }
         return termsVM[index]
     }
+    func subjectViewModel(for indexPath: IndexPath) -> SubjectsViewControllerVM {
+        let term = terms[indexPath.row]
+        return SubjectsViewControllerVM(term: term)
+    }
 }
