@@ -34,7 +34,7 @@ class SubjectsViewControllerVM {
     init(term: Term) {
         self.term = term
         subjects.forEach { term in
-            termsVM.append(TermTableViewCellVM(term: term))
+            termsVM.append(TermTableViewCellViewModel(term: term))
         }
     }
     func numberOfRows(in section: Int) -> Int {

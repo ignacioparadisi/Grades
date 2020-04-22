@@ -20,7 +20,7 @@
 		323F2570243105F800B9A4C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 323F256E243105F800B9A4C8 /* LaunchScreen.storyboard */; };
 		323F257B243105F800B9A4C8 /* GradesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F257A243105F800B9A4C8 /* GradesTests.swift */; };
 		324FD37124312C2D0005B077 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD37024312C2D0005B077 /* Utilities.swift */; };
-		324FD374243137470005B077 /* TermTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD373243137470005B077 /* TermTableViewCellVM.swift */; };
+		324FD374243137470005B077 /* TermTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD373243137470005B077 /* TermTableViewCellViewModel.swift */; };
 		324FD3772431378B0005B077 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD3762431378B0005B077 /* Term.swift */; };
 		324FD37A243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD379243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift */; };
 		324FD37C243145DB0005B077 /* Gradable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FD37B243145DB0005B077 /* Gradable.swift */; };
@@ -42,7 +42,7 @@
 		32CDB01924323D4100F5CD5F /* GradesStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDB01824323D4100F5CD5F /* GradesStrings.swift */; };
 		32CDB01B24323DCA00F5CD5F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDB01A24323DCA00F5CD5F /* Localizable.swift */; };
 		32CDB01D24323E0300F5CD5F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDB01C24323E0300F5CD5F /* String+Extension.swift */; };
-		32CDB01F24323F9700F5CD5F /* TermsViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDB01E24323F9700F5CD5F /* TermsViewControllerVM.swift */; };
+		32CDB01F24323F9700F5CD5F /* TermsViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDB01E24323F9700F5CD5F /* TermsViewControllerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +73,7 @@
 		323F257A243105F800B9A4C8 /* GradesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesTests.swift; sourceTree = "<group>"; };
 		323F257C243105F800B9A4C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324FD37024312C2D0005B077 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		324FD373243137470005B077 /* TermTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTableViewCellVM.swift; sourceTree = "<group>"; };
+		324FD373243137470005B077 /* TermTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		324FD3762431378B0005B077 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		324FD379243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSToolbarItemIdentifier+Extension.swift"; sourceTree = "<group>"; };
 		324FD37B243145DB0005B077 /* Gradable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradable.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		32CDB01824323D4100F5CD5F /* GradesStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesStrings.swift; sourceTree = "<group>"; };
 		32CDB01A24323DCA00F5CD5F /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		32CDB01C24323E0300F5CD5F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		32CDB01E24323F9700F5CD5F /* TermsViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewControllerVM.swift; sourceTree = "<group>"; };
+		32CDB01E24323F9700F5CD5F /* TermsViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewControllerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,8 +199,8 @@
 		324FD37224312E180005B077 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				324FD373243137470005B077 /* TermTableViewCellVM.swift */,
-				32CDB01E24323F9700F5CD5F /* TermsViewControllerVM.swift */,
+				324FD373243137470005B077 /* TermTableViewCellViewModel.swift */,
+				32CDB01E24323F9700F5CD5F /* TermsViewControllerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -468,11 +468,11 @@
 			files = (
 				323F2565243105F600B9A4C8 /* ViewController.swift in Sources */,
 				3260DEEE2431144C00A502A4 /* GradesSplitViewController.swift in Sources */,
-				32CDB01F24323F9700F5CD5F /* TermsViewControllerVM.swift in Sources */,
+				32CDB01F24323F9700F5CD5F /* TermsViewControllerViewModel.swift in Sources */,
 				324FD3802431583F0005B077 /* MainTabBarController.swift in Sources */,
 				324FD382243159AB0005B077 /* HomeSplitViewController.swift in Sources */,
 				321E4B1424339570007B5933 /* GradeCardTableViewCell.swift in Sources */,
-				324FD374243137470005B077 /* TermTableViewCellVM.swift in Sources */,
+				324FD374243137470005B077 /* TermTableViewCellViewModel.swift in Sources */,
 				3260DF012431225600A502A4 /* GradientView.swift in Sources */,
 				32CDB01D24323E0300F5CD5F /* String+Extension.swift in Sources */,
 				32CDB015243238D100F5CD5F /* Constants.swift in Sources */,

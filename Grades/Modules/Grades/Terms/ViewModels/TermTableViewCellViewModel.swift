@@ -1,5 +1,5 @@
 //
-//  TermTableViewCellVM.swift
+//  TermTableViewCellViewModel.swift
 //  Grades
 //
 //  Created by Ignacio Paradisi on 3/29/20.
@@ -8,8 +8,9 @@
 
 import UIKit
 
-class TermTableViewCellVM: GradableRepresentable {
+class TermTableViewCellViewModel: GradableRepresentable {
     // MARK: Properties
+    /// Term to be displayed
     private let term: Term
     var text: String {
         term.name

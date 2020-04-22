@@ -20,7 +20,7 @@ extension TermsViewController {
 
 class TermsViewController: UIViewController {
     // MARK: Properties
-    var viewModel = TermsViewControllerVM()
+    var viewModel = TermsViewControllerViewModel()
     var tableView: UITableView!
 
     override func viewDidLoad() {

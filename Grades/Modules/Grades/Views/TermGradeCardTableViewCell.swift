@@ -16,13 +16,11 @@ class TermGradeCardTableViewCell: UITableViewCell, ReusableView {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
         addSubview(cardView)
-        Utilities.setupForMac { isMac in
-            if isMac {
-                cardView.anchor.edgesToSuperview(insets: UIEdgeInsets(top: 16, left: 16, bottom: -16, right: -16)).activate()
-                return
-            }
-            cardView.anchor.edgesToSuperview().activate()
+        if isMacOS {
+            cardView.anchor.edgesToSuperview(insets: UIEdgeInsets(top: 16, left: 16, bottom: -16, right: -16)).activate()
+            return
         }
+        cardView.anchor.edgesToSuperview().activate()
         selectionStyle = .none
     }
     

@@ -1,5 +1,5 @@
 //
-//  TermsViewControllerVM.swift
+//  TermsViewControllerViewModel.swift
 //  Grades
 //
 //  Created by Ignacio Paradisi on 3/30/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TermsViewControllerVM {
+class TermsViewControllerViewModel {
     // MARK: Properties
     typealias Section = TermsViewController.Section
     private var terms: [Term] = [
@@ -30,7 +30,7 @@ class TermsViewControllerVM {
     }
     init() {
         terms.forEach { term in
-            termsVM.append(TermTableViewCellVM(term: term))
+            termsVM.append(TermTableViewCellViewModel(term: term))
         }
     }
     func numberOfRows(in section: Int) -> Int {
