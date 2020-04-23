@@ -12,5 +12,6 @@ import UIKit
 extension NSToolbarItem.Identifier {
     static let title = NSToolbarItem.Identifier("title")
     static let add = NSToolbarItem.Identifier("add")
+    static let back = NSToolbarItem.Identifier("back")
 }
 #endif

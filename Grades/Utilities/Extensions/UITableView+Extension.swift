@@ -17,10 +17,10 @@ extension UITableView {
         register(T.self, forCellReuseIdentifier: T.reusableIdentifier)
     }
     
-    /// Dequeues cell if UITableViewCell subclass comforms ReusableView protocol
+    /// Dequeues cell if UITableViewCell subclass conforms ReusableView protocol
     ///
     /// - Parameter indexPath: IndexPath of UITableViewCell
-    /// - Returns: UITableViewCell dequed
+    /// - Returns: UITableViewCell dequeued
     func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T where T: ReusableView {
         guard let cell = dequeueReusableCell(withIdentifier: T.reusableIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.reusableIdentifier)")

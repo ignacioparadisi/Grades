@@ -20,16 +20,30 @@ extension TermsViewController {
 
 class TermsViewController: UIViewController {
     // MARK: Properties
-    var viewModel = TermsViewControllerViewModel()
-    var tableView: UITableView!
+    /// `View Model` that holds all the data and performs all the actions of the `View Controller`
+    private var viewModel = TermsViewControllerViewModel()
+    /// `Table View` for listing the `Terms`
+    private var tableView: UITableView!
 
+    // MARK: Parent Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-        tableView = UITableView(frame: .zero, style: viewModel.tableViewStyle)
-        navigationController?.navigationBar.prefersLargeTitles = true
         title = GradesStrings.terms.localized
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        setupTableView()
         setupMacOS()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
+    // MARK: Functions
+    /// Adds the `Table View` into the` view`, sets up its constraints and register its cells
+    private func setupTableView() {
+        tableView = UITableView(frame: .zero, style: viewModel.tableViewStyle)
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)
@@ -39,15 +53,11 @@ class TermsViewController: UIViewController {
         tableView.register(TermGradeCardTableViewCell.self)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
-    
+    /// Makes all required changes for macOS
     func setupMacOS() {
-        #if targetEnvironment(macCatalyst)
-        navigationController?.navigationBar.isHidden = true
-        #endif
+        if isMacOS {
+            navigationController?.navigationBar.isHidden = true
+        }
     }
 
 }
@@ -75,6 +85,8 @@ extension TermsViewController: UITableViewDataSource {
         case .home:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
             cell.textLabel?.text = GradesStrings.home.localized
+            cell.imageView?.image = UIImage(systemName: "house.fill")
+            cell.imageView?.tintColor = .label
             return cell
         #endif
         }

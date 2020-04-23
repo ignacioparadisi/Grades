@@ -36,10 +36,8 @@ class GradableTableViewCell: UITableViewCell, ReusableView {
     
     /// Adds all the components to the view
     private func initialize() {
-        #if targetEnvironment(macCatalyst)
         let hoverGesture = UIHoverGestureRecognizer(target: self, action: #selector(setHoverColor(_:)))
         contentView.addGestureRecognizer(hoverGesture)
-        #endif
     }
     
     /// Configures the cell with the gradable information and adds the semi-circle that is in the front
@@ -71,6 +69,7 @@ class GradableTableViewCell: UITableViewCell, ReusableView {
 
 struct GradableView: View {
     var representable: GradableRepresentable
+    var diameter: CGFloat = 44
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy - h:mma"
@@ -97,7 +96,7 @@ struct GradableView: View {
 //                }
             }
             Spacer()
-            GradableCharView(gradable: representable).frame(width: 52, height: 52)
+            GradableCharView(gradable: representable, diameter: diameter)
         }
     }
     
@@ -111,47 +110,54 @@ struct GradableView: View {
 }
 
 struct GradableCharView: View {
+     @State private var gradableEndAngle: CGFloat = 0.0
     var gradable: GradableRepresentable
+    var diameter: CGFloat = 44
     /// The start angle of the grade graph
     private let startAngle: CGFloat = 0.0
     /// The end angle of the grade graph
     private let endAngle: CGFloat = 0.66
     private let lineWidth: CGFloat = 7
+    private var lineWidthMultiplier: CGFloat {
+        return diameter / 44
+    }
     private var animation: Animation? {
         return !self.gradable.didAppear ? Animation.easeInOut(duration: 0.7) : .none
     }
-    @State private var gradableEndAngle: CGFloat = 0.0
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Circle()
-                    .trim(from: self.startAngle, to: self.endAngle)
-                    .stroke(Color(.systemGray5), style: StrokeStyle(lineWidth: self.lineWidth,
-                                                                    lineCap: .round,
-                                                                    lineJoin: .round,
-                                                                    miterLimit: 0,
-                                                                    dash: [],
-                                                                    dashPhase: 0))
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .rotationEffect(Angle(degrees: -210))
-                
-                Circle()
-                    .trim(from: self.startAngle, to: self.gradableEndAngle)
-                    .stroke(Color(UIColor.getColor(for: self.gradable)), style: StrokeStyle(lineWidth: self.lineWidth,
-                                                                                            lineCap: .round,
-                                                                                            lineJoin: .round,
-                                                                                            miterLimit: 0,
-                                                                                            dash: [],
-                                                                                            dashPhase: 0))
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .rotationEffect(Angle(degrees: -210))
-                    .onAppear {
-                        self.animateRing(self.gradable)
-                }
-                
-                Text("\(Int(self.gradable.grade))")
+        ZStack {
+            Circle()
+                .trim(from: self.startAngle, to: self.endAngle)
+                .stroke(Color(.black).opacity(0.15),
+                        style: StrokeStyle(lineWidth: self.lineWidth * self.lineWidthMultiplier,
+                                           lineCap: .round,
+                                           lineJoin: .round,
+                                           miterLimit: 0,
+                                           dash: [],
+                                           dashPhase: 0)
+            )
+                .frame(width: diameter, height: diameter)
+                .rotationEffect(.degrees(-210))
+            
+            Circle()
+                .trim(from: self.startAngle, to: self.gradableEndAngle)
+                .stroke(Color(UIColor.getColor(for: self.gradable)),
+                        style: StrokeStyle(lineWidth: self.lineWidth *  self.lineWidthMultiplier,
+                                           lineCap: .round,
+                                           lineJoin: .round,
+                                           miterLimit: 0,
+                                           dash: [],
+                                           dashPhase: 0)
+            )
+                .frame(width: diameter, height: diameter)
+                .rotationEffect(Angle(degrees: -210))
+                .onAppear {
+                    self.animateRing(self.gradable)
             }
+            
+            Text("\(Int(self.gradable.grade))")
+                .font(.system(size: 17 * self.lineWidthMultiplier))
         }
         .padding(.top, 9)
     }

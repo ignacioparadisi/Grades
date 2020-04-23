@@ -82,10 +82,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 #if targetEnvironment(macCatalyst)
 extension SceneDelegate: NSToolbarDelegate {
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [.flexibleSpace, .add, .title]
+        return [.flexibleSpace, .add, .title, .back]
     }
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [.flexibleSpace, .title, .flexibleSpace, .add]
+        return [.back, .flexibleSpace, .title, .flexibleSpace, .add]
     }
     func toolbar(_ toolbar: NSToolbar,
                  itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
@@ -99,6 +99,13 @@ extension SceneDelegate: NSToolbarDelegate {
             let barButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
             item = NSToolbarItem(itemIdentifier: .add, barButtonItem: barButton)
             item?.label = "Add"
+            return item
+        case .back:
+            let image = UIImage(systemName: "chevron.left")?.withConfiguration(UIImage.SymbolConfiguration(scale: .small))
+            let barButton = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
+            item = NSToolbarItem(itemIdentifier: .back, barButtonItem: barButton)
+            item?.image = item?.image?.withConfiguration(UIImage.SymbolConfiguration(scale: .small))
+            item?.label = "Back"
             return item
         default:
             break
