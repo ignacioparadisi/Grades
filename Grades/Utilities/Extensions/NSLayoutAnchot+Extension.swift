@@ -245,6 +245,9 @@ public struct Anchor {
     public func width(to dimension: NSLayoutDimension, multiplier: CGFloat = 1) -> Anchor {
         return update(edge: .width, constraint: view.widthAnchor.constraint(equalTo: dimension, multiplier: multiplier))
     }
+    public func width(greaterThanOrEqualToConstant constant: CGFloat) -> Anchor {
+        return update(edge: .width, constraint: view.widthAnchor.constraint(greaterThanOrEqualToConstant: constant))
+    }
     // MARK: Axis anchors
     public func centerX(to axis: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Anchor {
         return update(edge: .centerX, constraint: view.centerXAnchor.constraint(equalTo: axis, constant: constant))

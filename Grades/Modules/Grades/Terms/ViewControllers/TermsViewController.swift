@@ -8,16 +8,6 @@
 
 import UIKit
 
-extension TermsViewController {
-    enum Section: Int, CaseIterable {
-        case grade
-        #if targetEnvironment(macCatalyst)
-        case home
-        #endif
-        case terms
-    }
-}
-
 class TermsViewController: UIViewController {
     // MARK: Properties
     /// `View Model` that holds all the data and performs all the actions of the `View Controller`
@@ -49,7 +39,7 @@ class TermsViewController: UIViewController {
         view.addSubview(tableView)
         tableView.anchor.edgesToSuperview().activate()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
-        tableView.register(GradableTableViewCell.self)
+        tableView.register(TermTableViewCell.self)
         tableView.register(TermGradeCardTableViewCell.self)
     }
     
@@ -60,6 +50,17 @@ class TermsViewController: UIViewController {
         }
     }
 
+}
+
+// MARK: - Table View Sections
+extension TermsViewController {
+    enum Section: Int, CaseIterable {
+        case grade
+        #if targetEnvironment(macCatalyst)
+        case home
+        #endif
+        case terms
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -77,13 +78,14 @@ extension TermsViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(for: indexPath) as TermGradeCardTableViewCell
             return cell
         case .terms:
-            guard var representable = viewModel.termCellRepresentable(for: indexPath) else { return UITableViewCell() }
-            let cell = tableView.dequeueReusableCell(for: indexPath) as GradableTableViewCell
-            cell.configure(with: &representable)
+            guard let representable = viewModel.termCellRepresentable(for: indexPath) else { return UITableViewCell() }
+            let cell = tableView.dequeueReusableCell(for: indexPath) as TermTableViewCell
+            cell.configure(with: representable)
             return cell
         #if targetEnvironment(macCatalyst)
         case .home:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
+            cell.addHoverGesture()
             cell.textLabel?.text = GradesStrings.home.localized
             cell.imageView?.image = UIImage(systemName: "house.fill")
             cell.imageView?.tintColor = .label

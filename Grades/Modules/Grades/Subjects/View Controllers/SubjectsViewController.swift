@@ -15,17 +15,16 @@ extension SubjectsViewController {
         case title
         #endif
         case grade
-        case chart
         case subjects
     }
 }
 
 class SubjectsViewController: UIViewController {
     // MARK: Properties
-    var viewModel: SubjectsViewControllerVM
+    var viewModel: SubjectsViewControllerViewModel
     var tableView: UITableView!
     
-    init(viewModel: SubjectsViewControllerVM) {
+    init(viewModel: SubjectsViewControllerViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,15 +44,15 @@ class SubjectsViewController: UIViewController {
         view.addSubview(tableView)
         tableView.anchor.edgesToSuperview().activate()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
-        tableView.register(GradableTableViewCell.self)
+        tableView.register(TermTableViewCell.self)
         tableView.register(GradeCardTableViewCell.self)
-        tableView.register(BarChartTableViewCell.self)
         setupMacOS()
+        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.reloadData()
+        
     }
     
     func setupMacOS() {
@@ -132,20 +131,10 @@ extension SubjectsViewController: UITableViewDataSource {
         case .grade:
             let cell = tableView.dequeueReusableCell(for: indexPath) as GradeCardTableViewCell
             return cell
-        case .chart:
-            let cell = tableView.dequeueReusableCell(for: indexPath) as BarChartTableViewCell
-            cell.configure(with: [
-                Term(name: "Esto es un texto burda burda de largo para ver hasta donde llega", grade: 20, maxGrade: 20, minGrade: 10),
-                Term(name: "Term 2", grade: 15, maxGrade: 20, minGrade: 10),
-                Term(name: "Term 3", grade: 10, maxGrade: 20, minGrade: 10),
-                Term(name: "Term 4", grade: 8, maxGrade: 20, minGrade: 10),
-                Term(name: "Term 5", grade: 12, maxGrade: 20, minGrade: 10)
-            ])
-            return cell
         case .subjects:
             guard var representable = viewModel.termCellRepresentable(for: indexPath) else { return UITableViewCell() }
-            let cell = tableView.dequeueReusableCell(for: indexPath) as GradableTableViewCell
-            cell.configure(with: &representable)
+            let cell = tableView.dequeueReusableCell(for: indexPath) as TermTableViewCell
+            cell.configure(with: representable)
             return cell
         }
     }

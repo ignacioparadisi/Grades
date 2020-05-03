@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		3202DE25243A602000FF489A /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202DE24243A602000FF489A /* NotificationName+Extension.swift */; };
 		321E4B0F243392E6007B5933 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B0E243392E6007B5933 /* SubjectsViewController.swift */; };
-		321E4B1224339343007B5933 /* SubjectsViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B1124339343007B5933 /* SubjectsViewControllerVM.swift */; };
+		321E4B1224339343007B5933 /* SubjectsViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B1124339343007B5933 /* SubjectsViewControllerViewModel.swift */; };
 		321E4B1424339570007B5933 /* GradeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B1324339570007B5933 /* GradeCardTableViewCell.swift */; };
 		321E4B1624339900007B5933 /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E4B1524339900007B5933 /* BarChartTableViewCell.swift */; };
+		32233667245120F7002BCEAA /* GradableRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32233666245120F7002BCEAA /* GradableRingView.swift */; };
 		323F2561243105F600B9A4C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F2560243105F600B9A4C8 /* AppDelegate.swift */; };
 		323F2563243105F600B9A4C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F2562243105F600B9A4C8 /* SceneDelegate.swift */; };
 		323F2565243105F600B9A4C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F2564243105F600B9A4C8 /* ViewController.swift */; };
@@ -43,6 +44,8 @@
 		32CDB01B24323DCA00F5CD5F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDB01A24323DCA00F5CD5F /* Localizable.swift */; };
 		32CDB01D24323E0300F5CD5F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDB01C24323E0300F5CD5F /* String+Extension.swift */; };
 		32CDB01F24323F9700F5CD5F /* TermsViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDB01E24323F9700F5CD5F /* TermsViewControllerViewModel.swift */; };
+		32E62FC5245CBAA40063E504 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E62FC4245CBAA40063E504 /* UIStackView+Extension.swift */; };
+		32EA7382245CA26C0087D92D /* GradableRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA7381245CA26C0087D92D /* GradableRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +61,10 @@
 /* Begin PBXFileReference section */
 		3202DE24243A602000FF489A /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		321E4B0E243392E6007B5933 /* SubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
-		321E4B1124339343007B5933 /* SubjectsViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewControllerVM.swift; sourceTree = "<group>"; };
+		321E4B1124339343007B5933 /* SubjectsViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewControllerViewModel.swift; sourceTree = "<group>"; };
 		321E4B1324339570007B5933 /* GradeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCardTableViewCell.swift; sourceTree = "<group>"; };
 		321E4B1524339900007B5933 /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
+		32233666245120F7002BCEAA /* GradableRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradableRingView.swift; sourceTree = "<group>"; };
 		323F255D243105F600B9A4C8 /* Grades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grades.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		323F2560243105F600B9A4C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		323F2562243105F600B9A4C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 		32CDB01A24323DCA00F5CD5F /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		32CDB01C24323E0300F5CD5F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		32CDB01E24323F9700F5CD5F /* TermsViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewControllerViewModel.swift; sourceTree = "<group>"; };
+		32E62FC4245CBAA40063E504 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		32EA7381245CA26C0087D92D /* GradableRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradableRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +145,7 @@
 		321E4B1024339329007B5933 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				321E4B1124339343007B5933 /* SubjectsViewControllerVM.swift */,
+				321E4B1124339343007B5933 /* SubjectsViewControllerViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				324FD379243140B00005B077 /* NSToolbarItemIdentifier+Extension.swift */,
 				32CDB01C24323E0300F5CD5F /* String+Extension.swift */,
 				3202DE24243A602000FF489A /* NotificationName+Extension.swift */,
+				32E62FC4245CBAA40063E504 /* UIStackView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,6 +298,7 @@
 			children = (
 				3260DEF62431190600A502A4 /* ReusableView.swift */,
 				32CDB01A24323DCA00F5CD5F /* Localizable.swift */,
+				32EA7381245CA26C0087D92D /* GradableRepresentable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -312,6 +320,7 @@
 				327530962431763A009CA924 /* ProgressRingView.swift */,
 				321E4B1324339570007B5933 /* GradeCardTableViewCell.swift */,
 				321E4B1524339900007B5933 /* BarChartTableViewCell.swift */,
+				32233666245120F7002BCEAA /* GradableRingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -474,6 +483,7 @@
 				321E4B1424339570007B5933 /* GradeCardTableViewCell.swift in Sources */,
 				324FD374243137470005B077 /* TermTableViewCellViewModel.swift in Sources */,
 				3260DF012431225600A502A4 /* GradientView.swift in Sources */,
+				32E62FC5245CBAA40063E504 /* UIStackView+Extension.swift in Sources */,
 				32CDB01D24323E0300F5CD5F /* String+Extension.swift in Sources */,
 				32CDB015243238D100F5CD5F /* Constants.swift in Sources */,
 				32CDB01B24323DCA00F5CD5F /* Localizable.swift in Sources */,
@@ -482,6 +492,7 @@
 				321E4B1624339900007B5933 /* BarChartTableViewCell.swift in Sources */,
 				3260DEF4243116D100A502A4 /* NSLayoutAnchot+Extension.swift in Sources */,
 				3260DEF72431190600A502A4 /* ReusableView.swift in Sources */,
+				32EA7382245CA26C0087D92D /* GradableRepresentable.swift in Sources */,
 				324FD3772431378B0005B077 /* Term.swift in Sources */,
 				323F256B243105F600B9A4C8 /* Grades.xcdatamodeld in Sources */,
 				323F2561243105F600B9A4C8 /* AppDelegate.swift in Sources */,
@@ -490,6 +501,7 @@
 				3260DEFA24311BA100A502A4 /* TermTableViewCell.swift in Sources */,
 				3202DE25243A602000FF489A /* NotificationName+Extension.swift in Sources */,
 				3260DEFC24311BDA00A502A4 /* UITableView+Extension.swift in Sources */,
+				32233667245120F7002BCEAA /* GradableRingView.swift in Sources */,
 				321E4B0F243392E6007B5933 /* SubjectsViewController.swift in Sources */,
 				3260DEF2243115D600A502A4 /* TermsViewController.swift in Sources */,
 				324FD37C243145DB0005B077 /* Gradable.swift in Sources */,
@@ -497,7 +509,7 @@
 				3260DF002431225600A502A4 /* GradeCardView.swift in Sources */,
 				3260DF032431226D00A502A4 /* TermGradeCardTableViewCell.swift in Sources */,
 				327530972431763A009CA924 /* ProgressRingView.swift in Sources */,
-				321E4B1224339343007B5933 /* SubjectsViewControllerVM.swift in Sources */,
+				321E4B1224339343007B5933 /* SubjectsViewControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

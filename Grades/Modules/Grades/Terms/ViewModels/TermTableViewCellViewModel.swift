@@ -12,23 +12,33 @@ class TermTableViewCellViewModel: GradableRepresentable {
     // MARK: Properties
     /// Term to be displayed
     private let term: Term
+    
+    /// Name of the Term
     var text: String {
         term.name
     }
+    
+    /// Grade of the Term
     var grade: Float {
         term.grade
     }
+    
+    /// Status color of the Term
     var statusColor: UIColor {
         return UIColor.getColor(for: term)
     }
+    
+    /// Maximum grade of the Term
     var maxGrade: Float {
         return term.maxGrade
     }
+    
+    /// Minimum grade of the term
     var minGrade: Float {
         return term.minGrade
     }
-    var didAppear: Bool = false
     
+    // MARK: Initializer
     init(term: Term) {
         self.term = term
     }

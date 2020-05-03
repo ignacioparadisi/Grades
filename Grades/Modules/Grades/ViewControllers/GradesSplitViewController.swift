@@ -14,7 +14,7 @@ class GradesSplitViewController: UISplitViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
         let rootViewController = UINavigationController(rootViewController: TermsViewController())
-        let vm = SubjectsViewControllerVM(term: Term(name: "Term 1", grade: 15, maxGrade: 20, minGrade: 10))
+        let vm = SubjectsViewControllerViewModel(term: Term(name: "Term 1", grade: 15, maxGrade: 20, minGrade: 10))
         let detailViewController = UINavigationController(rootViewController: SubjectsViewController(viewModel: vm))
         viewControllers = [rootViewController, detailViewController]
     }
