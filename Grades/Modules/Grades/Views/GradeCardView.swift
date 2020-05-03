@@ -35,6 +35,9 @@ class GradeCardView: UIView {
         
         // TODO: Delete this line after implementing the models
         configure()
+        
+        let gesture = UIHoverGestureRecognizer(target: self, action: #selector(handleHover(_:)))
+        addGestureRecognizer(gesture)
     }
     
     required init?(coder: NSCoder) {
@@ -93,6 +96,20 @@ class GradeCardView: UIView {
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         label.text = "You are doing great!"
         return label
+    }
+    
+    @objc private func handleHover(_ recognizer: UIHoverGestureRecognizer) {
+        switch recognizer.state {
+        case .began, .changed:
+            var location = recognizer.location(in: recognizer.view)
+            location.x = location.x / (recognizer.view?.frame.size.width ?? 1)
+            location.y = location.y / (recognizer.view?.frame.size.height ?? 1)
+            cardGradientView.didHover(location)
+        case .ended:
+            cardGradientView.reset()
+        default:
+            break
+        }
     }
     
 }

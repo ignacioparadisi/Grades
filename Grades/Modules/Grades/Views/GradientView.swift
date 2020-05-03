@@ -42,10 +42,25 @@ class GradientView: UIView {
     
     /// Draw the gradient
     override func layoutSubviews() {
+        super.layoutSubviews()
         guard let gradientLayer = layer as? CAGradientLayer else { return }
         gradientLayer.startPoint = startPoint
         gradientLayer.endPoint = endPoint
         gradientLayer.colors = [darkColor.cgColor, lightColor.cgColor]
+    }
+    
+    func didHover(_ position: CGPoint) {
+        print(position)
+        startPoint = position
+        setNeedsLayout()
+    }
+    
+    func reset() {
+        startPoint = CGPoint(x: 0.0, y: 0.5)
+        endPoint = CGPoint(x: 0.7, y: 0.5)
+        UIView.animate(withDuration: 1) {
+            self.setNeedsLayout()
+        }
     }
     
     /// Starts obtaining motion data for the gradient
